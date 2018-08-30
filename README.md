@@ -1,2 +1,2 @@
 # output_buffer
-Simple C++ class for writing big files in a small time
+Simple C++ class for writing big files in a small time, minimising I/O calls
