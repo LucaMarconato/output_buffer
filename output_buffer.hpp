@@ -58,6 +58,11 @@ public:
         }
     }
 
+    void add_chunk(std::string & s)
+    {
+        this->add_chunk((char *)s.c_str(), s.size());
+    }
+
     void write_to_file()
     {
         if(!out.is_open()) {
