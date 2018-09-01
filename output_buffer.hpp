@@ -16,6 +16,7 @@ class Output_buffer {
     unsigned long current_index;
     bool need_save;
     std::string filename;
+    bool verbose = false;
     
 public:
     
@@ -71,12 +72,14 @@ public:
         }
         if(this->current_index > 0) {
             out.write(this->buffer, this->current_index);
-            if(current_index >= 1024*1024) {
-                std::cout << "written " << std::setprecision(2) << (this->current_index)/(1024*1024) << "MB to " << this->filename << "\n";
-            } else if(current_index >= 1024) {
-                std::cout << "written " << std::setprecision(2) << (this->current_index)/1024 << "KB to " << this->filename << "\n";
-            } else {
-                std::cout << "written " << this->current_index << "B to " << this->filename << "\n";
+            if(verbose) {
+                if(current_index >= 1024*1024) {
+                    std::cout << "written " << std::setprecision(2) << (this->current_index)/(1024*1024) << "MB to " << this->filename << "\n";
+                } else if(current_index >= 1024) {
+                    std::cout << "written " << std::setprecision(2) << (this->current_index)/1024 << "KB to " << this->filename << "\n";
+                } else {
+                    std::cout << "written " << this->current_index << "B to " << this->filename << "\n";
+                }   
             }
             this->need_save = false;
         }
