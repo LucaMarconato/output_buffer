@@ -7,8 +7,7 @@
 #include <iomanip>
 #include <cmath>
 
-class Output_buffer {
-    
+class Output_buffer {   
     std::ofstream out;
     char * buffer;
     unsigned long buffer_size;
@@ -16,10 +15,10 @@ class Output_buffer {
     unsigned long current_index;
     bool need_save;
     std::string filename;
-    bool verbose = false;
     
 public:
-    
+
+    bool verbose = false;
     Output_buffer(std::string filename, unsigned long buffer_size, unsigned long max_chunk_size)
     {
         out.open(filename, std::ios::out | std::ios::binary);
